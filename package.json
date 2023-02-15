@@ -41,7 +41,7 @@
     "globby": "10.0.1",
     "lodash": "^4.17.19",
     "posix-getopt": "^1.2.0",
-    "typhonjs-escomplex": "0.0.12",
+    "typhonjs-escomplex": "^0.1.0",
     "unixify": "^1.0.0"
   }
 }
