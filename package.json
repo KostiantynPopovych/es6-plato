@@ -24,7 +24,6 @@
   "scripts": {
     "test": "echo 'TODO: Replace Grunt'"
   },
-  "devDependencies": {},
   "keywords": [
     "halstead",
     "visualize",
@@ -35,13 +34,16 @@
     "analyze"
   ],
   "dependencies": {
+    "@babel/parser": "^7.21.2",
     "eslint": "6.2.2",
     "eslint-plugin-react": "7.14.3",
     "fs-extra": "8.1.0",
     "globby": "10.0.1",
     "lodash": "^4.17.19",
+    "micromatch": "^4.0.5",
     "posix-getopt": "^1.2.0",
-    "typhonjs-escomplex": "^0.1.0",
+    "typhonjs-escomplex-module": "^0.1.0",
+    "typhonjs-escomplex-project": "^0.1.0",
     "unixify": "^1.0.0"
   }
 }

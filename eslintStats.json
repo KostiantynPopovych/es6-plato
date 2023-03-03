@@ -1,0 +1,229 @@
+{
+  "/Users/work/Documents/projects/torontojs.com/src/App.js": {
+    "filePath": "/Users/work/Documents/projects/torontojs.com/src/App.js",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  "/Users/work/Documents/projects/torontojs.com/src/components/ErrorPage.js": {
+    "filePath": "/Users/work/Documents/projects/torontojs.com/src/components/ErrorPage.js",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  "/Users/work/Documents/projects/torontojs.com/src/components/Event.js": {
+    "filePath": "/Users/work/Documents/projects/torontojs.com/src/components/Event.js",
+    "messages": [
+      {
+        "ruleId": "complexity",
+        "severity": 2,
+        "message": "Arrow function has a complexity of 5. Maximum allowed is 2.",
+        "line": 64,
+        "column": 16,
+        "nodeType": "ArrowFunctionExpression",
+        "messageId": "complex",
+        "endLine": 117,
+        "endColumn": 2
+      },
+      {
+        "ruleId": "abcsize/abcsize",
+        "severity": 2,
+        "message": "Function ABC Size 20 exceeds maximum 15 (16/10/7).",
+        "line": 64,
+        "column": 16,
+        "nodeType": "ArrowFunctionExpression",
+        "endLine": 117,
+        "endColumn": 2
+      }
+    ],
+    "suppressedMessages": [],
+    "errorCount": 2,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": "import React from \"react\"\nimport styled, { css } from 'styled-components'\nimport Color from 'color'\nimport theme from '../theme'\nimport AddToCalendar from 'react-add-to-calendar'\nimport 'react-add-to-calendar/dist/react-add-to-calendar.css'\n\nconst DAYS_OF_WEEK = [\n  `Sunday`,\n  `Monday`,\n  `Tuesday`,\n  `Wednesday`,\n  `Thursday`,\n  `Friday`,\n  `Saturday`,\n]\n\nconst MONTHS = [\n  `January`,\n  `February`,\n  `March`,\n  `April`,\n  `May`,\n  `June`,\n  `July`,\n  `August`,\n  `September`,\n  `October`,\n  `November`,\n  `December`,\n]\n\nlet linkStyles = css`\n  color: ${theme.link};\n  &:hover {\n    color: ${Color(theme.link).darken(0.5).rgb().string()};\n  }\n`\n\nlet Link = styled.a`\n  text-decoration: none;\n  ${linkStyles}\n`\nlet EventButtonsWrap = styled.div`\n  display: flex;\n\n  /* style overrides for react-add-to-calendar */\n  .react-add-to-calendar {\n    margin-left: 10px;\n  }\n  .react-add-to-calendar__dropdown ul {\n    padding-left: 0;\n    li {\n      padding: 4px;\n    }\n  }\n  .react-add-to-calendar__button {\n    border: none;\n    background-color: transparent;\n    ${linkStyles}\n  }\n`\n\nexport default ({ event }) => {\n  let meetupName, description, url\n\n  switch (event.organizer.displayName) {\n  case `NodeSchool Toronto`:\n    meetupName = `NodeSchool`\n    description = event.description\n    url = `http://nodeschool.io/toronto/`\n    break\n  case `One-Off JavaScript Events in Toronto`:\n    [, url, meetupName, ...description] = event.description.split(`\\n`)\n    break\n  default:\n    [meetupName,,, description,, url] = event.description.split(`\\n`)\n  }\n\n  let startDate = new Date(event.start.dateTime)\n\n  let day = DAYS_OF_WEEK[startDate.getDay()]\n  let month = MONTHS[startDate.getMonth()]\n  let date = startDate.getDate()\n  let hours = startDate.getHours() % 12\n  let minutes = startDate.getMinutes()\n  let AMPM = startDate.getHours() < 12 ? `AM` : `PM`\n\n  if (minutes <= 10) {\n    minutes = `0${minutes}`\n  }\n\n  let displayStartDate = `${day}, ${month} ${date} at ${hours}:${minutes}${AMPM}`\n\n  let addToCalendarEvent = {\n    title: event.summary,\n    description: event.description,\n    location: event.location,\n    startTime: startDate,\n    endTime: new Date(event.end.datetime),\n  }\n\n  return (\n    <div>\n      <h4>{meetupName} - {event.summary}</h4>\n      <p>{displayStartDate}</p>\n      <p>{event.location}</p>\n      <p>{description}</p>\n      <EventButtonsWrap>\n        <Link href={url} target=\"_blank\">\n          Event Details\n        </Link>\n        <AddToCalendar event={addToCalendarEvent} buttonTemplate={{ textOnly: true }} />\n      </EventButtonsWrap>\n    </div>\n  )\n}\n",
+    "usedDeprecatedRules": []
+  },
+  "/Users/work/Documents/projects/torontojs.com/src/components/Events.js": {
+    "filePath": "/Users/work/Documents/projects/torontojs.com/src/components/Events.js",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  "/Users/work/Documents/projects/torontojs.com/src/components/EventsPage.js": {
+    "filePath": "/Users/work/Documents/projects/torontojs.com/src/components/EventsPage.js",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  "/Users/work/Documents/projects/torontojs.com/src/components/RotatingText.js": {
+    "filePath": "/Users/work/Documents/projects/torontojs.com/src/components/RotatingText.js",
+    "messages": [
+      {
+        "ruleId": "@typescript-eslint/no-var-requires",
+        "severity": 2,
+        "message": "Require statement not part of import statement.",
+        "line": 1,
+        "column": 13,
+        "nodeType": "CallExpression",
+        "messageId": "noVarReqs",
+        "endLine": 1,
+        "endColumn": 29
+      },
+      {
+        "ruleId": "no-undef",
+        "severity": 2,
+        "message": "'require' is not defined.",
+        "line": 1,
+        "column": 13,
+        "nodeType": "Identifier",
+        "messageId": "undef",
+        "endLine": 1,
+        "endColumn": 20
+      },
+      {
+        "ruleId": "@typescript-eslint/no-extra-semi",
+        "severity": 2,
+        "message": "Unnecessary semicolon.",
+        "line": 62,
+        "column": 4,
+        "nodeType": "Punctuator",
+        "messageId": "unexpected",
+        "endLine": 62,
+        "endColumn": 5,
+        "fix": {
+          "range": [
+            1571,
+            1585
+          ],
+          "text": "}\n\n  _animate"
+        }
+      },
+      {
+        "ruleId": "security/detect-object-injection",
+        "severity": 1,
+        "message": "Function Call Object Injection Sink",
+        "line": 78,
+        "column": 21,
+        "nodeType": "MemberExpression",
+        "endLine": 78,
+        "endColumn": 33
+      },
+      {
+        "ruleId": "@typescript-eslint/no-extra-semi",
+        "severity": 2,
+        "message": "Unnecessary semicolon.",
+        "line": 81,
+        "column": 4,
+        "nodeType": "Punctuator",
+        "messageId": "unexpected",
+        "endLine": 81,
+        "endColumn": 5,
+        "fix": {
+          "range": [
+            2054,
+            2066
+          ],
+          "text": "}\n\n  render"
+        }
+      }
+    ],
+    "suppressedMessages": [],
+    "errorCount": 4,
+    "fatalErrorCount": 0,
+    "warningCount": 1,
+    "fixableErrorCount": 2,
+    "fixableWarningCount": 0,
+    "source": "let React = require(`react`)\n\nclass ReactRotatingText extends React.Component {\n  state = {\n    index: 0,\n    output: ``,\n  }\n\n  timeouts = []\n\n  componentDidMount() {\n    this._animate.bind(this)()   // begin the animation loop\n  }\n\n  componentWillUnmount() {\n    this.timeouts.map(x => clearTimeout(x))  // stop all the loops\n  }\n\n  _loop(loopingFunc, pause) {\n    // save the timeouts so we can stop on unmount\n    const timeout = setTimeout(loopingFunc, pause)\n    this.timeouts.push(timeout)\n\n    // prevent memory leak\n    const maxTimeouts = 100\n    if (this.timeouts.length > maxTimeouts) {\n      clearTimeout(this.timeouts[0])\n      this.timeouts.shift()\n    }\n  }\n\n  _type(text, callback) {\n    const { output } = this.state\n    const { typingInterval } = this.props\n    const loopingFunc = this._type.bind(this, text, callback)\n\n    // set the string one character longer\n    this.setState({ output: text.substr(0, output.length + 1) })\n\n    // if we're still not done, recursively loop again\n    if (output.length < text.length) {\n      this._loop(loopingFunc, typingInterval)\n    } else {\n      callback()\n    }\n  }\n\n  _erase(callback) {\n    const { output } = this.state\n    const { deletingInterval } = this.props\n    const loopingFunc = this._erase.bind(this, callback)\n\n    // set the string one character shorter\n    this.setState({ output: output.substr(0, output.length - 1) })\n\n    // if we're still not done, recursively loop again\n    if (output.length !== 0) {\n      this._loop(loopingFunc, deletingInterval)\n    } else {\n      callback()\n    }\n  };\n\n  _animate() {\n    const { index } = this.state\n    const { items, pause, emptyPause } = this.props\n    const type = this._type\n    const erase = this._erase\n    const loopingFunc = this._animate.bind(this)\n\n    const nextWord = () => {\n      this.setState({\n        index: index === items.length - 1 ? 0 : index + 1,\n      })\n      this._loop(loopingFunc, emptyPause)\n    }\n\n    type.bind(this)(items[index], () => {\n      this._loop(erase.bind(this, nextWord), pause)\n    })\n  };\n\n  render() {\n    const { color, cursor, className } = this.props\n    return (\n      <span className={className} style={{ color }}>\n        { this.state.output }\n        { cursor && <span className=\"react-rotating-text-cursor\">|</span> }\n      </span>\n    )\n  }\n}\n\nReactRotatingText.defaultProps = {\n  color: `inherit`,\n  cursor: true,\n  deletingInterval: 50,\n  emptyPause: 1000,\n  items: [`first`, `second`, `third`],\n  pause: 1500,\n  typingInterval: 50,\n}\n\nexport default ReactRotatingText\n",
+    "usedDeprecatedRules": []
+  },
+  "/Users/work/Documents/projects/torontojs.com/src/components/Splash.js": {
+    "filePath": "/Users/work/Documents/projects/torontojs.com/src/components/Splash.js",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  "/Users/work/Documents/projects/torontojs.com/src/components/StaticPage.js": {
+    "filePath": "/Users/work/Documents/projects/torontojs.com/src/components/StaticPage.js",
+    "messages": [
+      {
+        "ruleId": "no-undef",
+        "severity": 2,
+        "message": "'process' is not defined.",
+        "line": 7,
+        "column": 18,
+        "nodeType": "Identifier",
+        "messageId": "undef",
+        "endLine": 7,
+        "endColumn": 25
+      }
+    ],
+    "suppressedMessages": [],
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": "import React, { Component } from 'react'\nimport ReactMarkdown from 'react-markdown'\nimport { Link as L } from 'react-router-dom'\nimport styled from 'styled-components'\nimport logo from './png/logo_circle.png'\n\nconst basePath = process.env.NODE_ENV === `development` ? ``\n  : `https://raw.githubusercontent.com/torontojs/torontojs.com/gh-pages`\n\nconst Page = styled.section`\n  padding: 20px;\n  max-width: 750px;\n  margin: 0 auto;\n\n  & h2 {\n    font-family: 'Montserrat', sans-serif;\n    text-align: center;\n    letter-spacing: 3px;\n    font-weight: 100;\n    padding-bottom: 40px;\n  }\n`\n\nconst Logo = styled.img`\n  width: 55px;\n  height: 55px;\n  padding: 20px;\n`\n\nconst Link = styled(L)`\n  font-family: 'Montserrat', sans-serif;\n  text-decoration: none;\n  color: #333;\n  display: flex;\n  align-items: center;\n`\n\nclass StaticPage extends Component {\n  state = { content: `` }\n\n  async componentDidMount () {\n    let data = await fetch(`${basePath}/pages/${this.props.match.params.page}.md`)\n      .then((response) => response.text())\n\n    if (data.match(/<head>/g)) {\n      this.props.history.replace({ pathname: `/404` })\n    } else {\n      this.setState({ content: data })\n    }\n  }\n\n  render () {\n    const { content } = this.state\n\n    return (\n      <div>\n        <div>\n          <Link to=\"/\">\n            <Logo src={logo} />\n            <span>BACK</span>\n          </Link>\n        </div>\n        <Page>\n          <ReactMarkdown source={content} />\n        </Page>\n      </div>\n    )\n  }\n}\n\nexport default StaticPage\n",
+    "usedDeprecatedRules": []
+  },
+  "/Users/work/Documents/projects/torontojs.com/src/data/events.js": {
+    "filePath": "/Users/work/Documents/projects/torontojs.com/src/data/events.js",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  "/Users/work/Documents/projects/torontojs.com/src/index.js": {
+    "filePath": "/Users/work/Documents/projects/torontojs.com/src/index.js",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  "/Users/work/Documents/projects/torontojs.com/src/theme/index.js": {
+    "filePath": "/Users/work/Documents/projects/torontojs.com/src/theme/index.js",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  }
+}

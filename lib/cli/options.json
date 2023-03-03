@@ -57,9 +57,14 @@
     "desc": "Specify a eslintrc file for ESLint linting",
     "type": "String"
   },
-  "p": {
+  "E": {
     "long": "eslintStatsPath",
     "desc": "Specify a path to eslint stats file",
+    "type": "String"
+  },
+  "P": {
+    "long": "projectRootPath",
+    "desc": "Specify a path to project root directory",
     "type": "String"
   }
 }
