@@ -116,9 +116,9 @@
         <% if (options.flags.churn) { %>
         <button type="button" id="button-churn" class="btn btn-default lint">churn</button>
         <% } %>
-        <% if (options.flags.churn) { %>
-        <button type="button" id="button-churn-vs-complexity" class="btn btn-default lint">churn vs complexity</button>
-        <% } %>
+<!--        <% if (options.flags.churn) { %>-->
+<!--        <button type="button" id="button-churn-vs-complexity" class="btn btn-default lint">churn vs complexity</button>-->
+<!--        <% } %>-->
       </div>
     </div>
   </div>
@@ -139,8 +139,8 @@
               data-sloc="<%= item.complexity.aggregate.sloc.physical %>"
               data-bugs="<%= item.complexity.aggregate.halstead.bugs.toFixed(2) %>"
               data-complexity="<%= item.complexity.aggregate.cyclomatic %>"
-              data-churn="<%= item.churn && item.churn %>"
-              data-churn-complexity="<%= item.churn && item.churn * item.complexity.aggregate.cyclomatic %>"
+              data-churn="<%= item.churn && item.churn %>" %>
+<!--              data-churn-complexity="<%= item.churn && item.churn * item.complexity.aggregate.cyclomatic %>"-->
           ></span>
         </div>
       </li>
